@@ -1,59 +1,42 @@
 * {
-   
+    box-sizing: border-box;
     font-family: 'Oswald', sans-serif;
 }
 
 body {
-    align-items: center;  
-    height: 400px;
-    width: 300px;
-    
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(to top right, #023833, #089f8f, #c7faea);
-    justify-content: space-between;
-    height: 400px;
-    width: 300px;
-    align-items: center;
-
-    
-}
-
-.buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     margin: 0;
-    padding: 10px;
-    flex-grow: 3;
+    padding: 0;
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-basis: 100%;
-
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 80px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+    justify-content: center;
+    background: linear-gradient(to top right, #023833, #089f8f, #c7faea);
+    height: 500px;
+    width: 500px;
+    align-content: center;   
 }
 
 button {
-    display: flex;
-    justify-content: space-between;
-    flex-basis: 100%;
-    padding: 20px;
+    cursor: pointer;
+    padding: 10px;
     border-radius: 8px;
-    font-size: 18px;
-    align-items: center;
+    border: 1px, solid #023833;
+    background-color: #f4fffe;
+    outline: none;
+    font-size: 1.5rem;
 }
 
-button.spanTwo {
-    flex-grow: 5;
+button:hover {
+    background-color: #93a3a2;
 }
 
-button.spanTh {
-    flex-grow: 4;
+.spanTwo {
+    grid-column: span 2;
+    background-color: #023833;
+    color: #c7faea; 
 }
 
 .extras {
