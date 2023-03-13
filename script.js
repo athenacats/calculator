@@ -1,12 +1,17 @@
-const numberButton = document.querySelectorAll('number')
-const operandButton = document.querySelectorAll('operand')
-const equalsButton = document.querySelectorAll('equal')
-const deleteButton = document.querySelectorAll('delete')
-const clearButton = document.querySelector('clear')
-const previousButton = document.querySelector('previous')
-const currentButton = document.querySelectorAll('current')
-const negativeButton = document.querySelectorAll('negative')
-const moreButton = document.querySelectorAll('more')
-const bracketButton = document.querySelectorAll('bracket')
-const decimalBUtton = document.querySelectorAll('decimal')
+const numberButton = document.querySelectorAll('.number')
+const operandButton = document.querySelectorAll('.operand')
+const equalsButton = document.querySelector('.equal')
+const deleteButton = document.querySelector('.delete')
+const clearButton = document.querySelector('.clear')
+const previousOutput = document.querySelector('.previous')
+const currentOutput = document.querySelector('.current')
+const negativeButton = document.querySelector('.negative')
+const moreButton = document.querySelector('.more')
+const bracketButton = document.querySelectorAll('.bracket')
+const decimalBUtton = document.querySelector('.decimal')
 
+
+clearButton.addEventListener('click', function() {
+    currentOutput.textContent = '';
+    previousOutput.textContent = '';
+})
