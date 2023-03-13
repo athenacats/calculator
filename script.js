@@ -10,13 +10,14 @@ const moreButton = document.querySelector('.more')
 const bracketButton = document.querySelectorAll('.bracket')
 const decimalBUtton = document.querySelector('.decimal')
 
-console.log(operationButton.textContent)
-console.log(numberButton.textContent)
 
-clearButton.addEventListener('click', function() {
-    currentOutput.textContent = '';
-    previousOutput.textContent = '';
-})
+
+function empty() {
+    clearButton.addEventListener('click', function() {
+        currentOutput.textContent = '';
+        previousOutput.textContent = '';
+    })
+}
 
 for (const button of numberButton) {
     button.addEventListener('click', function() {
@@ -30,9 +31,13 @@ deleteButton.addEventListener('click', function() {
 
 for (const operation of operationButton) {
     operation.addEventListener('click', function() {
-        currentOutput.innerHTML += operation.textContent; 
-        previousOutput.innerHTML += currentOutput.textContent;
-        currentOutput.textContent = '';  
+        if (previousOutput.textContent == '' || isNaN(previousOutput.textContent) == true) {
+            currentOutput.textContent += operation.textContent; 
+            previousOutput.textContent += currentOutput.textContent;
+            currentOutput.textContent = '';  
+        } else {
+            return empty();
+        }
     })
 }
 
