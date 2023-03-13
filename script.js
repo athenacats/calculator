@@ -20,17 +20,19 @@ clearButton.addEventListener('click', function() {
 
 for (const button of numberButton) {
     button.addEventListener('click', function() {
-        currentOutput.innerHTML += button.innerHTML;
+        currentOutput.textContent += button.textContent;
     } )
 }
 
 deleteButton.addEventListener('click', function() {
-    currentOutput.innerHTML = currentOutput.innerHTML.toString().slice(0, -1)
+    currentOutput.textContent = currentOutput.textContent.toString().slice(0, -1)
 })
 
 for (const operation of operationButton) {
     operation.addEventListener('click', function() {
-        currentOutput.innerHTML += operation.textContent;   
+        currentOutput.innerHTML += operation.textContent; 
+        previousOutput.innerHTML += currentOutput.textContent;
+        currentOutput.textContent = '';  
     })
 }
 
