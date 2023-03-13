@@ -1,5 +1,5 @@
 const numberButton = document.querySelectorAll('.number')
-const operandButton = document.querySelectorAll('.operand')
+const operationButton = document.querySelectorAll('.operation')
 const equalsButton = document.querySelector('.equal')
 const deleteButton = document.querySelector('.delete')
 const clearButton = document.querySelector('.clear')
@@ -10,7 +10,8 @@ const moreButton = document.querySelector('.more')
 const bracketButton = document.querySelectorAll('.bracket')
 const decimalBUtton = document.querySelector('.decimal')
 
-console.log(equalsButton)
+console.log(operationButton.textContent)
+console.log(numberButton.textContent)
 
 clearButton.addEventListener('click', function() {
     currentOutput.textContent = '';
@@ -27,5 +28,9 @@ deleteButton.addEventListener('click', function() {
     currentOutput.innerHTML = currentOutput.innerHTML.toString().slice(0, -1)
 })
 
-
+for (const operation of operationButton) {
+    operation.addEventListener('click', function() {
+        currentOutput.innerHTML += operation.textContent;   
+    })
+}
 
