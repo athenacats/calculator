@@ -1,0 +1,12 @@
+const numberButton = document.querySelectorAll('number')
+const operandButton = document.querySelectorAll('operand')
+const equalsButton = document.querySelectorAll('equal')
+const deleteButton = document.querySelectorAll('delete')
+const clearButton = document.querySelector('clear')
+const previousButton = document.querySelector('previous')
+const currentButton = document.querySelectorAll('current')
+const negativeButton = document.querySelectorAll('negative')
+const moreButton = document.querySelectorAll('more')
+const bracketButton = document.querySelectorAll('bracket')
+const decimalBUtton = document.querySelectorAll('decimal')
+
