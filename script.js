@@ -15,3 +15,10 @@ clearButton.addEventListener('click', function() {
     currentOutput.textContent = '';
     previousOutput.textContent = '';
 })
+
+for (const button of numberButton) {
+    button.addEventListener('click', function() {
+        currentOutput.innerHTML += button.innerHTML;
+    } )
+}
+
