@@ -14,7 +14,7 @@ console.log(clearButton)
 let tempCompute = 0;
 
 
-for (const button of numberButton) {
+/*for (const button of numberButton) {
     button.addEventListener('click', function() {
         if (previousOutput.textContent == '') {
             currentOutput.textContent += button.textContent;
@@ -24,7 +24,7 @@ for (const button of numberButton) {
             currentOutput.textContent += button.textContent;
         }
     } )
-}
+}*/
 
 
 clearButton.addEventListener('click', function empty() {
@@ -51,10 +51,9 @@ deleteButton.addEventListener('click', function() {
 }
 */
 
-/*if (previousOutput.textContent == '') {
-    previousOutput.textContent = currentOutput.textContent;
-    currentOutput.textContent += operation.textContent; */
-let tempResult = 0; 
+
+
+/*  MAIN  let tempResult = 0; 
 
 for (const operation of operationButton) {
     operation.addEventListener('click', function() {
@@ -63,6 +62,8 @@ for (const operation of operationButton) {
             currentOutput.textContent += operation.textContent; 
         }
        else {
+
+
         if (operationButton.textContent == '+') {
                 previousOutput.textContent = (previousOutput.textContent) + currentOutput.textContent;
                 currentOutput.textContent = ''; 
@@ -85,6 +86,57 @@ for (const operation of operationButton) {
             }   
         
        })
+    }*/
+
+let currentNumber = '';
+let previousNumber = '';
+let operation = undefined;
+
+function appendNumber(number) {
+    if (number === '.' && currentNumber.includes('.')) return;
+    currentNumber += number
+}
+
+function selectOperation(op) {
+    if (currentNumber === '') return;
+    if (previousNumber !== '') {
+    calculate();
     }
+    operation = op;
+    previousNumber = currentNumber;
+    currentNumber = '';
+}
 
+let lastChar = (currentOutput.textContent).slice(-1)
 
+for (const button of numberButton) {
+    button.addEventListener('click', function() {
+        if ((currentOutput.textContent).slice(-1) == 'x' || 
+        (currentOutput.textContent).slice(-1) == '+' || 
+        (currentOutput.textContent).slice(-1) == '-' || 
+        (currentOutput.textContent).slice(-1) == '÷') {
+            tempCompute += button.textContent;
+            currentOutput.textContent += button.textContent;
+        }
+        else {
+            currentOutput.textContent += button.textContent;  
+        } 
+    })
+}
+
+for (const operation of operationButton) {
+    operation.addEventListener('click', function() {
+        if (previousOutput.textContent == '') {
+            previousOutput.textContent = currentOutput.textContent;
+            currentOutput.textContent += operation.textContent;
+            tempResult = currentOutput.textContent.toString().slice(0, -1)
+        }
+       else {
+        if (operationButton.textContent == '+') {
+            previousOutput.textContent = (previousOutput.textContent) + tempCompute;
+            currentOutput.textContent = ''; 
+        }
+    }   
+        
+})
+}
