@@ -8,7 +8,7 @@ const currentOutput = document.querySelector('.current')
 const negativeButton = document.querySelector('.negative')
 const moreButton = document.querySelector('.more')
 const bracketButton = document.querySelectorAll('.bracket')
-const decimalBUtton = document.querySelector('.decimal')
+//const decimalBUtton = document.querySelector('.decimal')
 
 
 
