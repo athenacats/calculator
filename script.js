@@ -10,8 +10,6 @@ const moreButton = document.querySelector('.more')
 const bracketButton = document.querySelectorAll('.bracket')
 const decimalBUtton = document.querySelector('.decimal')
 
-console.log(clearButton)
-let tempCompute = 0;
 
 
 /*for (const button of numberButton) {
@@ -28,12 +26,9 @@ let tempCompute = 0;
 
 
 clearButton.addEventListener('click', function empty() {
-    currentOutput.textContent = '';
     currentNumber = '';
     previousNumber = '';
     operation = undefined;
-    previousOutput.textContent = '';
-    tempCompute = 0;
 })
 
 
@@ -143,21 +138,17 @@ function calculate() {
     previousNumber = '';
 }
 
-let lastChar = (currentOutput.textContent).slice(-1)
+function updateOutput() {
+    currentOutput.textContent = currentNumber;
+    previousOutput.textContent = `${previousNumber} ${operation}`;
+}
+
 
 for (const button of numberButton) {
     button.addEventListener('click', function() {
-        if ((currentOutput.textContent).slice(-1) == 'x' || 
-        (currentOutput.textContent).slice(-1) == '+' || 
-        (currentOutput.textContent).slice(-1) == '-' || 
-        (currentOutput.textContent).slice(-1) == '÷') {
-            tempCompute += button.textContent;
-            currentOutput.textContent += button.textContent;
-        }
-        else {
-            currentOutput.textContent += button.textContent;  
-        } 
-    })
+        appendNumber(button.textContent);
+        updateOutput;
+    });
 }
 
 for (const operation of operationButton) {
