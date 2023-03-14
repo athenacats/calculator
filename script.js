@@ -10,26 +10,35 @@ const moreButton = document.querySelector('.more')
 const bracketButton = document.querySelectorAll('.bracket')
 const decimalBUtton = document.querySelector('.decimal')
 
+console.log(clearButton)
+let tempCompute = 0;
 
-
-function empty() {
-    clearButton.addEventListener('click', function() {
-        currentOutput.textContent = '';
-        previousOutput.textContent = '';
-    })
-}
 
 for (const button of numberButton) {
     button.addEventListener('click', function() {
-        currentOutput.textContent += button.textContent;
+        if (previousOutput.textContent == '') {
+            currentOutput.textContent += button.textContent;
+        }
+        else {
+            tempCompute += button.textContent;
+            currentOutput.textContent += button.textContent;
+        }
     } )
 }
+
+
+clearButton.addEventListener('click', function empty() {
+    currentOutput.textContent = '';
+    previousOutput.textContent = '';
+    tempCompute == 0;
+})
+
 
 deleteButton.addEventListener('click', function() {
     currentOutput.textContent = currentOutput.textContent.toString().slice(0, -1)
 })
 
-for (const operation of operationButton) {
+/*for (const operation of operationButton) {
     operation.addEventListener('click', function() {
         if (previousOutput.textContent == '' || isNaN(previousOutput.textContent) == true) {
             currentOutput.textContent += operation.textContent; 
@@ -40,4 +49,24 @@ for (const operation of operationButton) {
         }
     })
 }
+*/
+
+for (const operation of operationButton) {
+    operation.addEventListener('click', function() {
+        if (previousOutput.textContent == '') {
+            previousOutput.textContent = currentOutput.textContent;
+            currentOutput.textContent += operation.textContent; 
+        }
+       else {
+        if (operation.textContent == '+') {
+                previousOutput.textContent == (previousOutput.textContent) + tempCompute
+                currentOutput.textContent += operation.textContent; 
+            }
+        
+        
+            }   
+        
+       })
+    }
+
 
