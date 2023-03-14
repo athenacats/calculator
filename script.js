@@ -123,7 +123,16 @@ function calculate() {
         default: 
         return;
     }
-    currentNumber = result.toFixed(2);
+    //currentNumber = result.toFixed(2);
+    if (result.toFixed(2).toString().slice(-1) == 0) {
+        currentNumber = result.toFixed(1);
+    }
+    if (result.toFixed(2).toString().slice(-2) == 00)  {
+        currentNumber = result;
+    }
+    else {
+        currentNumber = result.toFixed(2);
+    }
     operation = undefined;
     previousNumber = '';
 }
