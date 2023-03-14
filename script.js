@@ -24,22 +24,7 @@ const decimalBUtton = document.querySelector('.decimal')
     } )
 }*/
 
-function clear(){
-    currentNumber = '';
-    previousNumber = '';
-    operation = undefined;
-}
 
-
-clearButton.addEventListener('click', function() {
-    clear();
-    updateOutput();
-})
-
-
-deleteButton.addEventListener('click', function() {
-    currentOutput.textContent = currentOutput.textContent.toString().slice(0, -1)
-})
 
 /*for (const operation of operationButton) {
     operation.addEventListener('click', function() {
@@ -143,28 +128,42 @@ function calculate() {
     previousNumber = '';
 }
 
+function clear(){
+    currentNumber = '';
+    previousNumber = '';
+    operation = undefined;
+}
+
 function updateOutput() {
-    currentOutput.textContent = currentNumber;
-    previousOutput.textContent = `${previousNumber} ${operation}`;
+    currentOutput.innerText = currentNumber;
+    previousOutput.innerText= `${previousNumber} ${operation}`;
 }
 
-
-for (const button of numberButton) {
+numberButton.forEach((button) => { 
     button.addEventListener('click', function() {
-        appendNumber(button.textContent);
-        updateOutput;
+        appendNumber(button.innerText);
+        updateOutput();
     });
-}
-
-for (const operation of operationButton) {
-    operation.addEventListener('click', function() {
-        selectOperation(button.textContent);
-        updateOutput;     
 });
-}
+
+operationButton.forEach((button) => {
+    button.addEventListener('click', function() {
+        selectOperation(button.innerText);
+        updateOutput();     
+    });
+});
 
 equalsButton.addEventListener('click', function() {
     calculate();
     updateOutput();
 });
 
+clearButton.addEventListener('click', function() {
+    clear();
+    updateOutput();
+})
+
+
+deleteButton.addEventListener('click', function() {
+    currentOutput.textContent = currentOutput.textContent.toString().slice(0, -1)
+})
