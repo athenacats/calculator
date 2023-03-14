@@ -30,7 +30,7 @@ for (const button of numberButton) {
 clearButton.addEventListener('click', function empty() {
     currentOutput.textContent = '';
     previousOutput.textContent = '';
-    tempCompute == 0;
+    tempCompute = 0;
 })
 
 
@@ -51,6 +51,11 @@ deleteButton.addEventListener('click', function() {
 }
 */
 
+/*if (previousOutput.textContent == '') {
+    previousOutput.textContent = currentOutput.textContent;
+    currentOutput.textContent += operation.textContent; */
+let tempResult = 0; 
+
 for (const operation of operationButton) {
     operation.addEventListener('click', function() {
         if (previousOutput.textContent == '') {
@@ -58,10 +63,23 @@ for (const operation of operationButton) {
             currentOutput.textContent += operation.textContent; 
         }
        else {
-        if (operation.textContent == '+') {
-                previousOutput.textContent == (previousOutput.textContent) + tempCompute
-                currentOutput.textContent += operation.textContent; 
+        if (operationButton.textContent == '+') {
+                previousOutput.textContent = (previousOutput.textContent) + currentOutput.textContent;
+                currentOutput.textContent = ''; 
             }
+        else if (operationButton.textContent == '-') {
+            previousOutput.textContent == (previousOutput.textContent) - tempCompute;
+            currentOutput.textContent += operation.textContent; 
+        }
+        else if (operationButton.textContent == '÷') {
+            previousOutput.textContent == (previousOutput.textContent) / tempCompute;
+            currentOutput.textContent += operation.textContent; 
+        }
+        else if (operationButton.textContent == 'x') {
+            previousOutput.textContent == (previousOutput.textContent) * tempCompute;
+            currentOutput.textContent += operation.textContent; 
+        }
+        
         
         
             }   
