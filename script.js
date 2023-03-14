@@ -24,11 +24,16 @@ const decimalBUtton = document.querySelector('.decimal')
     } )
 }*/
 
-
-clearButton.addEventListener('click', function empty() {
+function clear(){
     currentNumber = '';
     previousNumber = '';
     operation = undefined;
+}
+
+
+clearButton.addEventListener('click', function() {
+    clear();
+    updateOutput();
 })
 
 
@@ -153,17 +158,13 @@ for (const button of numberButton) {
 
 for (const operation of operationButton) {
     operation.addEventListener('click', function() {
-        if (previousOutput.textContent == '') {
-            previousOutput.textContent = currentOutput.textContent;
-            currentOutput.textContent += operation.textContent;
-            tempResult = currentOutput.textContent.toString().slice(0, -1)
-        }
-       else {
-        if (operationButton.textContent == '+') {
-            previousOutput.textContent = (previousOutput.textContent) + tempCompute;
-            currentOutput.textContent = ''; 
-        }
-    }   
-        
-})
+        selectOperation(button.textContent);
+        updateOutput;     
+});
 }
+
+equalsButton.addEventListener('click', function() {
+    calculate();
+    updateOutput();
+});
+
