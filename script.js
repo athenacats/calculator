@@ -113,12 +113,13 @@ function calculate() {
         case '÷':
             if (curr === 0) {
                 alert("Can't divide by 0")
+                clearAll();
             } else {
                 result = prev / curr;
             }
             break;
         case '%':
-            result = prev * curr/100;
+            result = prev / 100;
             break;   
         default: 
         return;
@@ -173,7 +174,18 @@ operationButton.forEach((button) => {
 equalsButton.addEventListener('click', function() {
     calculate();
     updateOutput();
-});
+    /*numberButton.addEventListener('click', function() {
+            currentNumber = '';
+            currentOutput.textContent = '';
+            appendNumber();
+            previousNumber = '';
+            operation = undefined;
+            
+            previousOutput.textContent = '';
+        });*/
+    });
+    
+
 
 clearButton.addEventListener('click', function() {
     clearAll();
