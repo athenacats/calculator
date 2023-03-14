@@ -128,27 +128,35 @@ function calculate() {
     previousNumber = '';
 }
 
-function clear(){
+function clearAll(){
     currentNumber = '';
     previousNumber = '';
     operation = undefined;
+    currentOutput.textContent = '';
+    previousOutput.textContent = '';
 }
 
 function updateOutput() {
-    currentOutput.innerText = currentNumber;
-    previousOutput.innerText= `${previousNumber} ${operation}`;
+    currentOutput.textContent = currentNumber;
+    
+    if (operation != undefined) {
+        previousOutput.textContent = `${previousNumber} ${operation}`;
+    }
+    else {
+        previousOutput.textContent = '';
+    }
 }
 
 numberButton.forEach((button) => { 
     button.addEventListener('click', function() {
-        appendNumber(button.innerText);
+        appendNumber(button.textContent);
         updateOutput();
     });
 });
 
 operationButton.forEach((button) => {
     button.addEventListener('click', function() {
-        selectOperation(button.innerText);
+        selectOperation(button.textContent);
         updateOutput();     
     });
 });
@@ -159,11 +167,12 @@ equalsButton.addEventListener('click', function() {
 });
 
 clearButton.addEventListener('click', function() {
-    clear();
+    clearAll();
     updateOutput();
 })
 
 
 deleteButton.addEventListener('click', function() {
-    currentOutput.textContent = currentOutput.textContent.toString().slice(0, -1)
+    currentOutput.textContent = currentOutput.textContent.toString().slice(0, -1);
+    currentNumber = parseFloat(currentNumber.toString().slice(0, -1));
 })
