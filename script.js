@@ -29,6 +29,9 @@ let tempCompute = 0;
 
 clearButton.addEventListener('click', function empty() {
     currentOutput.textContent = '';
+    currentNumber = '';
+    previousNumber = '';
+    operation = undefined;
     previousOutput.textContent = '';
     tempCompute = 0;
 })
