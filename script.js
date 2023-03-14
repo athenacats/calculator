@@ -107,6 +107,39 @@ function selectOperation(op) {
     currentNumber = '';
 }
 
+function calculate() {
+    let result;
+    const prev = parseFloat(previousNumber);
+    const curr = parseFloat(currentNumber);
+    if (isNaN(prev) || isNaN(curr)) return;
+    switch (operation) {
+        case '+':
+            result = prev + curr;
+            break;
+        case '-':
+            result = prev - curr;
+            break;
+        case 'x':
+            result = prev * curr;
+            break;
+        case '÷':
+            if (curr === 0) {
+                alert("Can't divide by 0")
+            } else {
+                result = prev / curr;
+            }
+            break;
+        case '%':
+            result = prev * curr/100;
+            break;   
+        default: 
+        return;
+    }
+    currentNumber = result.toFixed(2);
+    operation = undefined;
+    previousNumber = '';
+}
+
 let lastChar = (currentOutput.textContent).slice(-1)
 
 for (const button of numberButton) {
