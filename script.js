@@ -1,3 +1,6 @@
+/*call all the buttons. the buttons that are commented out, i 
+changed their class to number. in case it fails in the future,
+i'll reactivate them*/
 const numberButton = document.querySelectorAll('.number')
 const operationButton = document.querySelectorAll('.operation')
 const equalsButton = document.querySelector('.equal')
@@ -10,16 +13,16 @@ const moreButton = document.querySelector('.more')
 const bracketButton = document.querySelectorAll('.bracket')
 //const decimalBUtton = document.querySelector('.decimal')
 
-
+/*the current and previous numbers are temporary holders. start as blank*/
 let currentNumber = '';
 let previousNumber = '';
 let operation = undefined;
 
+/*this is to progressively add numbers as buttons as pressed.*/
 function appendNumber(number) {
-    currentOutput.textContent = '';
+    /*the below is to restrict decimals to only be added once*/
     if (number === '.' && currentNumber.includes('.')) return;
     currentNumber += number;
-    previousOutput.textContent = '';
 }
 
 function selectOperation(op) {
