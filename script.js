@@ -11,71 +11,6 @@ const bracketButton = document.querySelectorAll('.bracket')
 //const decimalBUtton = document.querySelector('.decimal')
 
 
-
-/*for (const button of numberButton) {
-    button.addEventListener('click', function() {
-        if (previousOutput.textContent == '') {
-            currentOutput.textContent += button.textContent;
-        }
-        else {
-            tempCompute += button.textContent;
-            currentOutput.textContent += button.textContent;
-        }
-    } )
-}*/
-
-
-
-/*for (const operation of operationButton) {
-    operation.addEventListener('click', function() {
-        if (previousOutput.textContent == '' || isNaN(previousOutput.textContent) == true) {
-            currentOutput.textContent += operation.textContent; 
-            previousOutput.textContent += currentOutput.textContent;
-            currentOutput.textContent = '';  
-        } else {
-            return empty();
-        }
-    })
-}
-*/
-
-
-
-/*  MAIN  let tempResult = 0; 
-
-for (const operation of operationButton) {
-    operation.addEventListener('click', function() {
-        if (previousOutput.textContent == '') {
-            previousOutput.textContent = currentOutput.textContent;
-            currentOutput.textContent += operation.textContent; 
-        }
-       else {
-
-
-        if (operationButton.textContent == '+') {
-                previousOutput.textContent = (previousOutput.textContent) + currentOutput.textContent;
-                currentOutput.textContent = ''; 
-            }
-        else if (operationButton.textContent == '-') {
-            previousOutput.textContent == (previousOutput.textContent) - tempCompute;
-            currentOutput.textContent += operation.textContent; 
-        }
-        else if (operationButton.textContent == '÷') {
-            previousOutput.textContent == (previousOutput.textContent) / tempCompute;
-            currentOutput.textContent += operation.textContent; 
-        }
-        else if (operationButton.textContent == 'x') {
-            previousOutput.textContent == (previousOutput.textContent) * tempCompute;
-            currentOutput.textContent += operation.textContent; 
-        }
-        
-        
-        
-            }   
-        
-       })
-    }*/
-
 let currentNumber = '';
 let previousNumber = '';
 let operation = undefined;
@@ -199,7 +134,43 @@ clearButton.addEventListener('click', function() {
 })
 
 
-deleteButton.addEventListener('click', function() {
+deleteButton.addEventListener('click', function remove() {
     currentOutput.textContent = currentOutput.textContent.toString().slice(0, -1);
     currentNumber = parseFloat(currentNumber.toString().slice(0, -1));
+})
+
+
+document.addEventListener('keypress', function (event) {
+    const key = event.key;
+    const keyCode = event.keyCode;
+
+    if (keyCode >= 48 && keyCode <= 57) {
+        appendNumber(event.key);
+        updateOutput();
+    }
+
+    if (key === '.') {+
+        appendNumber(event.key);
+        updateOutput();
+    }
+
+    if (key === '+' || key === '-' || key === '*' || key === '/') {
+        selectOperation(event.key);
+        updateOutput();
+    }
+
+    if (key === 'Enter' || key === '=') {
+        calculate(event.key);
+        updateOutput();
+    }
+
+    if (keyCode === 8) {
+        currentNumber = parseFloat(currentNumber.toString().slice(0, -1));
+        currentOutput.textContent = currentOutput.textContent.toString().slice(0, -1);
+    }
+    
+    if (key === 'Delete') {
+        clearAll(event.key);
+        updateOutput();
+    }
 })
