@@ -56,6 +56,7 @@ button:hover {
     margin-bottom: 10px;
     margin-top: 10px;
     border-radius: 8px;
+    border: 1px solid #023833;
 }
 
 .current {
@@ -75,6 +76,17 @@ button:hover {
 .operation {
     background-color: #1E6B64;
     color: #c7faea;
+}
+
+.more {
+    background-color: #92A9A7;
+    color: #313534;
+    cursor: not-allowed;
+}
+
+.delete {
+    background-color: #023833;
+    color: #c7faea; 
 }
 
 @media only screen and (max-width: 550px) {
