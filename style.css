@@ -4,17 +4,23 @@
 }
 
 body {
-    margin: auto;
+    margin: 0;
     padding: 0;
 }
 
 .container {
+    /*this margin is what centers it on page*/
     margin: auto;
+    /*easiest to use for grids. tried flex for two days before switching*/
     display: grid;
+    /*define number of columns and their width*/
     grid-template-columns: repeat(5, 80px);
+    /*define rows and width, for the first row for output, min is 120px, max auto*/
     grid-template-rows: minmax(120px, auto) repeat(5, 80px);
     justify-content: center;
+    /*for the background color and direction*/
     background: linear-gradient(to top right, #023833, #089f8f, #c7faea);
+    /*i wanted it to be rectangular, i could have also gone for height =100vh*/
     height: 600px;
     width: 500px;
     align-content: center;   
@@ -27,31 +33,39 @@ button {
     border: 1px, solid #023833;
     background-color: #f4fffe;
     outline: none;
+    /*rem aparently means how much bigger shall the font be in comparison to normal font*/
+    /*most web pages its 16px*/
     font-size: 1.5rem;
 }
 
 button:hover {
+    /*back ground color changes on hover*/
     background-color: #93a3a2;
 }
 
 .spanTwo {
+    /* for the bigger buttons*/
     grid-column: span 2;
     background-color: #023833;
     color: #c7faea; 
 }
 
 .extras {
+    /*i hid them, will unhide using js*/
     display: none;
 }
 
 .output {
+    /*this defines the grid starts on the first column line and ends on the last column line*/
     grid-column: 1 / -1;
     background-color: #c7faea;
+    /*because there are two children, previous and current*/
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     flex-direction: column;
     padding: 10px;
+    /*to define what happens if a number is long*/
     word-wrap: break-word;
     word-break: break-all;
     margin-bottom: 10px;
@@ -72,6 +86,8 @@ button:hover {
 .bracket {
     /*background-color: #489464;
     color: #c7faea;*/
+
+    /*the above comment shall be reactivated once i make brackets to work*/
     background-color: #92A9A7;
     color: #313534;
     cursor: not-allowed;
@@ -98,6 +114,7 @@ button:hover {
     color: #c7faea; 
 }
 
+/*the below is to make it mobile friendly*/
 @media only screen and (max-width: 550px) {
     .container {
         grid-template-columns: repeat(5, 50px);
