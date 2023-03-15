@@ -68,7 +68,15 @@ button:hover {
     color: #c7faea;
 }
 
-.bracket, .operation.percentage {
+.bracket {
+    /*background-color: #489464;
+    color: #c7faea;*/
+    background-color: #92A9A7;
+    color: #313534;
+    cursor: not-allowed;
+}
+
+.operation.percentage {
     background-color: #489464;
     color: #c7faea;
 }
