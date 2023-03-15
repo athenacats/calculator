@@ -4,11 +4,12 @@
 }
 
 body {
-    margin: 0;
+    margin: auto;
     padding: 0;
 }
 
 .container {
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(5, 80px);
     grid-template-rows: minmax(120px, auto) repeat(5, 80px);
