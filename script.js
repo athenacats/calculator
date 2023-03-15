@@ -16,8 +16,10 @@ let previousNumber = '';
 let operation = undefined;
 
 function appendNumber(number) {
+    currentOutput.textContent = '';
     if (number === '.' && currentNumber.includes('.')) return;
-    currentNumber += number
+    currentNumber += number;
+    previousOutput.textContent = '';
 }
 
 function selectOperation(op) {
@@ -164,7 +166,7 @@ document.addEventListener('keypress', function (event) {
         updateOutput();
     }
 
-    if (keyCode === 8) {
+    if (key === 'Backspace') {
         currentNumber = parseFloat(currentNumber.toString().slice(0, -1));
         currentOutput.textContent = currentOutput.textContent.toString().slice(0, -1);
     }
