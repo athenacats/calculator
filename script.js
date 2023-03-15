@@ -5,7 +5,7 @@ const deleteButton = document.querySelector('.delete')
 const clearButton = document.querySelector('.clear')
 const previousOutput = document.querySelector('.previous')
 const currentOutput = document.querySelector('.current')
-const negativeButton = document.querySelector('.negative')
+//const negativeButton = document.querySelector('.negative')
 const moreButton = document.querySelector('.more')
 const bracketButton = document.querySelectorAll('.bracket')
 //const decimalBUtton = document.querySelector('.decimal')
@@ -86,9 +86,12 @@ function appendNumber(number) {
 }
 
 function selectOperation(op) {
-    if (currentNumber === '') return;
+    if(currentNumber === '' && operation === '%' && previousNumber !== '') {
+        calculate();
+    }
+    if (currentNumber === '' && operation != '%') return;
     if (previousNumber !== '') {
-    calculate();
+        calculate();
     }
     operation = op;
     previousNumber = currentNumber;
@@ -104,7 +107,7 @@ function calculate() {
         case '+':
             result = prev + curr;
             break;
-        case '-':
+        case '—':
             result = prev - curr;
             break;
         case 'x':
@@ -119,8 +122,11 @@ function calculate() {
             }
             break;
         case '%':
-            result = prev / 100;
-            break;   
+            if (currentNumber === '') {
+                result = prev /100;
+            }  
+            result = prev / 100 * curr;
+        break;  
         default: 
         return;
     }
